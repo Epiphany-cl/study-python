@@ -25,3 +25,9 @@ print(f"名字：{name}，年龄：{age}")
 5. `in` 可以检查成员关系
 6. `:=` 赋值表达式 又叫 海象运算符，将赋值和应用并为一步
 7. `[out_exp_res for out_exp in input_list if condition]` 推导式
+8. `and` 和 `or` 相当于 Java 中的 `&&`和`||`
+
+## 4. python 元组使用小括号 `()`，列表使用方括号 `[]`。
+
+- 元组的元素不能修改
+- 其他使用方法和列表基本一致
