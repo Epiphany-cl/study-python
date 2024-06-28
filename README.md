@@ -52,7 +52,7 @@ print('Baidu: {Baidu:d}; Google: {Google:d}; Taobao: {Taobao:d}'.format(**table)
 - 元组的元素不能修改
 - 其他使用方法和列表基本一致
 
-# 5. Python 解释器
+# 5. Python 装饰器
 
 - Python 装饰器直接改变了函数的执行流程，可以在函数调用前后添加自定义逻辑。
 - Java 注解则是在编译时或运行时提供元数据，需要通过反射 API 或其他工具来读取并处理注解信息。
@@ -290,3 +290,42 @@ print(data_s)  # {'name': 'James', 'age': 18, 'gender': 'male'}
 |            | 61 | `os.closerange(fd_low, fd_high)` 关闭所有文件描述符，从 fd_low (包含) 到 fd_high (不包含), 错误会忽略                                                                     |
 |            | 62 | `os.fdopen(fd[, mode[, bufsize]])` 通过文件描述符 fd 创建一个文件对象，并返回这个文件对象                                                                                    |
 |            | 63 | `os.replace()` 重命名文件或目录。                                                                                                                            |
+
+# 8. 异常
+
+## 8.1 异常捕获
+
+![](./other/image/异常捕获.png)
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print("不能除以零！", e)
+except ValueError:
+    print("输入的不是一个有效的数字！")
+else:
+    print(f"结果是: {result}")
+finally:
+    print("这段代码总是会执行。")
+```
+> 异常处理 try、except、else 和 finally
+
+## 8.2 抛出异常
+```python
+raise Exception('抛出一个异常～')
+```
+> Python 使用 raise 语句抛出一个指定的异常。
+
+## 8.3 自定义异常
+```python
+class MyError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
+raise MyError("啦啦啦")
+```
