@@ -1,11 +1,13 @@
 # 一个 Java 开发学习 Python 记录
 
-## 1. 注释
+> [Python3 教程 | 菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)
+
+# 1. 注释
 
 python 单行注释:`#`，多行注释:`"""""`
 > python 的多行注释本质是未被引用的字符串
 
-## 2. 字符串格式化输出 %、{}
+# 2. 字符串格式化输出 %、{}
 
 ```python
 name = "小明"
@@ -34,7 +36,7 @@ print('Baidu: {Baidu:d}; Google: {Google:d}; Taobao: {Taobao:d}'.format(**table)
 
 > 这种方式利用了`**`运算符来解包字典`table`
 
-## 3. python 中特殊的运算符和关键字
+# 3. python 中特殊的运算符和关键字
 
 1. `//` 整除
 2. `**` 幂运算
@@ -45,12 +47,12 @@ print('Baidu: {Baidu:d}; Google: {Google:d}; Taobao: {Taobao:d}'.format(**table)
 7. `[out_exp_res for out_exp in input_list if condition]` 推导式
 8. `and` 和 `or` 相当于 Java 中的 `&&`和`||`
 
-## 4. python 元组使用小括号 `()`，列表使用方括号 `[]`。
+# 4. python 元组使用小括号 `()`，列表使用方括号 `[]`。
 
 - 元组的元素不能修改
 - 其他使用方法和列表基本一致
 
-## 5. Python 解释器
+# 5. Python 解释器
 
 - Python 装饰器直接改变了函数的执行流程，可以在函数调用前后添加自定义逻辑。
 - Java 注解则是在编译时或运行时提供元数据，需要通过反射 API 或其他工具来读取并处理注解信息。
@@ -186,20 +188,20 @@ file_w.close()
 
 以下是 file 对象的常用方法，使用 `open` 函数创建的文件对象：
 
-| 序号 | 方法及描述                                                   |
-| ---- | ------------------------------------------------------------ |
-| 1    | `file.close()`<br>关闭文件。关闭后文件不能再进行读写操作。   |
-| 2    | `file.flush()`<br>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件，而不是被动的等待输出缓冲区写入。 |
-| 3    | `file.fileno()`<br>返回一个整型的文件描述符（file descriptor FD 整型），可以用在如 `os` 模块的 `read` 方法等一些底层操作上。 |
-| 4    | `file.isatty()`<br>如果文件连接到一个终端设备返回 `True`，否则返回 `False`。 |
-| 6    | `file.read([size])`<br>从文件读取指定的字节数，如果未给定或为负则读取所有。 |
-| 7    | `file.readline([size])`<br>读取整行，包括 `"\n"` 字符。      |
-| 8    | `file.readlines([sizeint])`<br>读取所有行并返回列表，若给定 `sizeint>0`，返回总和大约为 `sizeint` 字节的行，实际读取值可能比 `sizeint` 较大，因为需要填充缓冲区。 |
-| 9    | `file.seek(offset[, whence])`<br>移动文件读取指针到指定位置。中文算是三个字节，定位到字符的中间，可能会导致解码问题。 |
-| 10   | `file.tell()`<br>返回文件当前位置。                          |
-| 11   | `file.truncate([size])`<br>从文件的首行首字符开始截断，截断文件为 `size` 个字符，无 `size` 表示从当前位置截断；截断之后后面的所有字符被删除，其中 Windows 系统下的换行代表 2 个字符大小。 |
-| 12   | `file.write(str)`<br>将字符串写入文件，返回的是写入的字符长度。 |
-| 13   | `file.writelines(sequence)`<br>向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。 |
+| 序号 | 方法及描述                                                                                                                    |
+|----|--------------------------------------------------------------------------------------------------------------------------|
+| 1  | `file.close()`<br>关闭文件。关闭后文件不能再进行读写操作。                                                                                   |
+| 2  | `file.flush()`<br>刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件，而不是被动的等待输出缓冲区写入。                                                            |
+| 3  | `file.fileno()`<br>返回一个整型的文件描述符（file descriptor FD 整型），可以用在如 `os` 模块的 `read` 方法等一些底层操作上。                                 |
+| 4  | `file.isatty()`<br>如果文件连接到一个终端设备返回 `True`，否则返回 `False`。                                                                  |
+| 6  | `file.read([size])`<br>从文件读取指定的字节数，如果未给定或为负则读取所有。                                                                        |
+| 7  | `file.readline([size])`<br>读取整行，包括 `"\n"` 字符。                                                                            |
+| 8  | `file.readlines([sizeint])`<br>读取所有行并返回列表，若给定 `sizeint>0`，返回总和大约为 `sizeint` 字节的行，实际读取值可能比 `sizeint` 较大，因为需要填充缓冲区。        |
+| 9  | `file.seek(offset[, whence])`<br>移动文件读取指针到指定位置。中文算是三个字节，定位到字符的中间，可能会导致解码问题。                                              |
+| 10 | `file.tell()`<br>返回文件当前位置。                                                                                               |
+| 11 | `file.truncate([size])`<br>从文件的首行首字符开始截断，截断文件为 `size` 个字符，无 `size` 表示从当前位置截断；截断之后后面的所有字符被删除，其中 Windows 系统下的换行代表 2 个字符大小。 |
+| 12 | `file.write(str)`<br>将字符串写入文件，返回的是写入的字符长度。                                                                               |
+| 13 | `file.writelines(sequence)`<br>向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。                                                        |
 
 ## 6.3 pickle 模块
 
@@ -218,3 +220,73 @@ file_ss = open("../other/data.pkl", "rb")
 data_s = pickle.load(file_ss)
 print(data_s)  # {'name': 'James', 'age': 18, 'gender': 'male'}
 ```
+
+# 7. OS 模块
+
+这里是按照功能重新排序的 `os` 模块方法和描述的表格：
+
+| 功能分类       | 序号 | 方法及描述                                                                                                                                               |
+|------------|----|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| 目录和路径操作    | 1  | `os.chdir(path)` 改变当前工作目录                                                                                                                           |
+|            | 2  | `os.getcwdb()` 返回一个当前工作目录的Unicode对象                                                                                                                 |
+|            | 3  | `os.getcwd()` 返回当前工作目录                                                                                                                              |
+|            | 4  | `os.listdir(path)` 返回path指定的文件夹包含的文件或文件夹的名字的列表。                                                                                                     |
+|            | 5  | `os.makedirs(path[, mode])` 递归文件夹创建函数。像mkdir(), 但创建的所有intermediate-level文件夹需要包含子文件夹。                                                                |
+|            | 6  | `os.mkdir(path[, mode])` 以数字mode的mode创建一个名为path的文件夹.默认的 mode 是 0777 (八进制)。                                                                          |
+|            | 7  | `os.rmdir(path)` 删除path指定的空目录，如果目录非空，则抛出一个OSError异常。                                                                                                |
+|            | 8  | `os.removedirs(path)` 递归删除目录。                                                                                                                       |
+|            | 9  | `os.rename(src, dst)` 重命名文件或目录，从 src 到 dst                                                                                                          |
+|            | 10 | `os.renames(old, new)` 递归地对目录进行更名，也可以对文件进行更名。                                                                                                       |
+|            | 11 | `os.walk(top[, topdown=True[, onerror=None[, followlinks=False]]])` 输出在文件夹中的文件名通过在树中游走，向上或者向下。                                                      |
+| 文件和链接操作    | 12 | `os.open(file, flags[, mode])` 打开一个文件，并且设置需要的打开选项，mode参数是可选的                                                                                        |
+|            | 13 | `os.read(fd, n)` 从文件描述符 fd 中读取最多 n 个字节，返回包含读取字节的字符串，文件描述符 fd对应文件已达到结尾, 返回一个空字符串。                                                                    |
+|            | 14 | `os.write(fd, str)` 写入字符串到文件描述符 fd中. 返回实际写入的字符串长度                                                                                                   |
+|            | 15 | `os.close(fd)` 关闭文件描述符 fd                                                                                                                           |
+|            | 16 | `os.dup(fd)` 复制文件描述符 fd                                                                                                                             |
+|            | 17 | `os.dup2(fd, fd2)` 将一个文件描述符 fd 复制到另一个 fd2                                                                                                           |
+|            | 18 | `os.lseek(fd, pos, how)` 设置文件描述符 fd当前位置为pos, how方式修改: SEEK_SET 或者 0 设置从文件开始的计算的pos; SEEK_CUR或者 1 则从当前位置计算; os.SEEK_END或者2则从文件尾部开始. 在unix，Windows中有效 |
+|            | 19 | `os.truncate(fd, length)` 裁剪文件描述符fd对应的文件, 所以它最大不能超过文件大小。                                                                                            |
+|            | 20 | `os.remove(path)` 删除路径为path的文件。如果path 是一个文件夹，将抛出OSError; 查看下面的rmdir()删除一个 directory。                                                                |
+|            | 21 | `os.unlink(path)` 删除文件路径                                                                                                                            |
+|            | 22 | `os.symlink(src, dst)` 创建一个软链接                                                                                                                      |
+|            | 23 | `os.link(src, dst)` 创建硬链接，名为参数 dst，指向参数 src                                                                                                         |
+|            | 24 | `os.readlink(path)` 返回软链接所指向的文件                                                                                                                     |
+| 文件属性和权限操作  | 25 | `os.access(path, mode)` 检验权限模式                                                                                                                      |
+|            | 26 | `os.chmod(path, mode)` 更改权限                                                                                                                         |
+|            | 27 | `os.chown(path, uid, gid)` 更改文件所有者                                                                                                                  |
+|            | 28 | `os.lchown(path, uid, gid)` 更改文件所有者，类似 chown，但是不追踪链接。                                                                                               |
+|            | 29 | `os.lchmod(path, mode)` 修改连接文件权限                                                                                                                    |
+|            | 30 | `os.fchmod(fd, mode)` 改变一个文件的访问权限，该文件由参数fd指定，参数mode是Unix下的文件访问权限。                                                                                   |
+|            | 31 | `os.fchown(fd, uid, gid)` 修改一个文件的所有权，这个函数修改一个文件的用户ID和用户组ID，该文件由文件描述符fd指定。                                                                           |
+|            | 32 | `os.chflags(path, flags)` 设置路径的标记为数字标记。                                                                                                             |
+|            | 33 | `os.lchflags(path, flags)` 设置路径的标记为数字标记，类似 chflags()，但是没有软链接                                                                                        |
+|            | 34 | `os.stat(path)` 获取path指定的路径的信息，功能等同于C API中的stat()系统调用。                                                                                              |
+|            | 35 | `os.lstat(path)` 像stat(),但是没有软链接                                                                                                                    |
+|            | 36 | `os.fstat(fd)` 返回文件描述符fd的状态，像stat()。                                                                                                                |
+|            | 37 | `os.fstatvfs(fd)` 返回包含文件描述符fd的文件的文件系统的信息，Python 3.3 相等于 statvfs()。                                                                                  |
+|            | 38 | `os.statvfs(path)` 获取指定路径的文件系统统计信息                                                                                                                  |
+|            | 39 | `os.pathconf(path, name)` 返回相关文件的系统配置信息。                                                                                                            |
+|            | 40 | `os.fpathconf(fd, name)` 返回一个打开的文件的系统配置信息。name为检索的系统配置的值，它也许是一个定义系统值的字符串，这些名字在很多标准中指定（POSIX.1, Unix 95, Unix 98, 和其它）。                              |
+|            | 41 | `os.stat_float_times([newvalue])` 决定stat_result是否以float对象显示时间戳                                                                                      |
+| 文件系统和设备操作  | 42 | `os.major(device)` 从原始的设备号中提取设备major号码 (使用stat中的st_dev或者st_rdev field)。                                                                             |
+|            | 43 | `os.minor(device)` 从原始的设备号中提取设备minor号码 (使用stat中的st_dev或者st_rdev field )。                                                                            |
+|            | 44 | `os.makedev(major, minor)` 以major和minor设备号组成一个原始设备号                                                                                                 |
+| 文件描述符和终端操作 | 45 | `os.openpty()` 打开一个新的伪终端对。返回 pty 和 tty的文件描述符。                                                                                                       |
+|            | 46 | `os.tcgetpgrp(fd)` 返回与终端fd（一个由os.open()返回的打开的文件描述符）关联的进程组                                                                                           |
+|            | 47 | `os.tcsetpgrp(fd, pg)` 设置与终端fd（一个由os.open()返回的打开的文件描述符）关联的进程组为pg。                                                                                   |
+|            | 48 | `os.isatty(fd)` 如果文件描述符fd是打开的，同时与tty(-like)设备相连，则返回true, 否则False。                                                                                   |
+|            | 49 | `os.ttyname(fd)` 返回一个字符串，它表示与文件描述符fd 关联的终端设备。如果fd 没有与终端设备关联，则引发一个异常。                                                                                |
+| 进程和信号操作    | 50 | `os.chdir(path)` 改变当前工作目录                                                                                                                           |
+|            | 51 | `os.chroot(path)` 改变当前进程的根目录                                                                                                                        |
+| 临时文件和目录操作  | 52 | `os.tempnam([dir[, prefix]])` Python3 中已删除。返回唯一的路径名用于创建临时文件。                                                                                        |
+|            | 53 | `os.tmpfile()` Python3 中已删除。返回一个打开的模式为(w+b)的文件对象 .这文件对象没有文件夹入口，没有文件描述符，将会自动删除。                                                                      |
+|            | 54 | `os.tmpnam()` Python3 中已删除。为创建一个临时文件返回一个唯一的路径                                                                                                       |
+| 其他         | 55 | `os.pipe()` 创建一个管道. 返回一对文件描述符(r, w) 分别为读和写                                                                                                          |
+|            | 56 | `os.popen(command[, mode[, bufsize]])` 从一个 command 打开一个管道                                                                                           |
+|            | 57 | `os.fdatasync(fd)` 强制将文件写入磁盘，该文件由文件描述符fd指定，但是不强制更新文件的状态信息。                                                                                          |
+|            | 58 | `os.fsync(fd)` 强制将文件描述符为fd的文件写入硬盘。                                                                                                                  |
+|            | 59 | `os.utime(path, times)` 返回指定的path文件的访问和修改的时间。                                                                                                       |
+|            | 60 | `os.pardir()` 获取当前目录的父目录，以字符串形式显示目录名。                                                                                                               |
+|            | 61 | `os.closerange(fd_low, fd_high)` 关闭所有文件描述符，从 fd_low (包含) 到 fd_high (不包含), 错误会忽略                                                                     |
+|            | 62 | `os.fdopen(fd[, mode[, bufsize]])` 通过文件描述符 fd 创建一个文件对象，并返回这个文件对象                                                                                    |
+|            | 63 | `os.replace()` 重命名文件或目录。                                                                                                                            |
