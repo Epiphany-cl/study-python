@@ -309,15 +309,19 @@ else:
 finally:
     print("这段代码总是会执行。")
 ```
+
 > 异常处理 try、except、else 和 finally
 
 ## 8.2 抛出异常
+
 ```python
 raise Exception('抛出一个异常～')
 ```
+
 > Python 使用 raise 语句抛出一个指定的异常。
 
 ## 8.3 自定义异常
+
 ```python
 class MyError(Exception):
     def __init__(self, value):
@@ -329,3 +333,55 @@ class MyError(Exception):
 
 raise MyError("啦啦啦")
 ```
+
+# 9. 面相对象
+
+## 9.1 类的构建
+
+```python
+class MyClass:
+    """一个简单的类实例"""
+    i = 12345
+
+    def fun(self):
+        return f'hello world{self.i}'
+```
+
+# 9.2 `__init__(self)` 构造方法
+
+```python
+class Complex:
+    def __init__(self, real_part, imag_part):
+        self.r = real_part
+        self.i = imag_part
+```
+
+# 9.3 继承，Python支持单继承和多继承
+
+```python
+class Parent:  # 定义父类
+    def my_method(self):
+        print('调用父类方法')
+
+
+class Child(Parent):  # 定义子类
+    def my_method(self):
+        print('调用子类方法')
+```
+
+# 9.4 类的专有方法(魔术方法)
+
+1. `__init__` : 构造函数，在生成对象时调用
+2. `__del__` : 析构函数，释放对象时使用
+3. `__repr__` : 打印，转换
+4. `__setitem__` : 按照索引赋值
+5. `__getitem__`: 按照索引获取值
+6. `__len__`: 获得长度
+7. `__cmp__`: 比较运算
+8. `__call__`: 函数调用
+9. `__add__`: 加运算
+10. `__sub__`: 减运算
+11. `__mul__`: 乘运算
+12. `__truediv__`: 除运算
+13. `__mod__`: 求余运算
+14. `__pow__`: 乘方
