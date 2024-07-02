@@ -385,3 +385,107 @@ class Child(Parent):  # 定义子类
 12. `__truediv__`: 除运算
 13. `__mod__`: 求余运算
 14. `__pow__`: 乘方
+
+# 10. 命名空间和作用域
+
+## 10.1 命名空间(namespace)
+
+> A namespace is a mapping from names to objects.Most namespaces are currently implemented as Python dictionaries。<br/>
+> 命名空间是从名称到对象的映射，大部分的命名空间都是通过 Python 字典来实现的。
+
+在Python中，有四种主要的命名空间：
+
+1. **内置命名空间（Built-in Namespace）**：
+    - 包含Python内置的函数和异常等，例如`print()`、`len()`等。
+    - 在解释器启动时创建，Python终止时销毁。
+
+2. **全局命名空间（Global Namespace）**：
+    - 包含在模块（脚本）中定义的变量和函数。
+    - 在模块被导入时创建，解释器终止时销毁。
+
+3. **模块命名空间（Module Namespace）**：
+    - 每个模块都有自己的命名空间，包含模块中定义的所有全局变量、函数和类。
+    - 在模块加载时创建。
+
+4. **局部命名空间（Local Namespace）**：
+    - 包含在函数或方法中定义的变量和参数。
+    - 在函数调用时创建，函数返回后销毁。
+
+```python
+# var1 是全局名称
+var1 = 5
+
+
+def some_func():
+    # var2 是局部名称
+    var2 = 6
+
+    def some_inner_func():
+        # var3 是内嵌的局部名称
+        var3 = 7
+```
+
+## 10.2 作用域(scope)
+
+> A scope is a textual region of a Python program where a namespace is directly accessible. "Directly accessible" here
+> means that an unqualified reference to a name attempts to find the name in the namespace.<br/>
+> 作用域是 Python 程序中的一个文本区域，在这个区域内，一个命名空间是直接可访问的。“直接可访问”在这里的意思是，对一个名字的非限定引用会尝试在该命名空间中找到这个名字。
+
+当Python解释器遇到一个变量时，它会按照以下顺序查找变量的值：
+
+1. **L（Local）**：查找局部命名空间。
+2. **E（Enclosing）**：查找嵌套函数的命名空间。
+3. **G（Global）**：查找全局命名空间。
+4. **B（Built-in）**：查找内置命名空间。
+
+```python
+x = 'global x'
+
+
+def outer():
+    x = 'outer x'
+
+    def inner():
+        x = 'inner x'
+        print(x)  # inner x
+
+    inner()
+    print(x)  # outer x
+
+
+outer()
+print(x)  # global x
+```
+
+## 10.3 `global` 和 `nonlocal`
+
+- **`global`关键字**：用于在函数内部声明一个全局变量，从而可以在函数内修改全局变量的值。
+- **`nonlocal`关键字**：用于在嵌套函数中声明一个非局部变量，从而可以在内层函数中修改外层函数中的变量。
+
+```python
+x = 10  # 全局变量
+
+
+def modify_global():
+    global x  # 声明x是全局变量
+    x = 20  # 修改全局变量x的值
+
+
+modify_global()
+print(x)  # 输出 20
+```
+
+```python
+def outer():
+    x = 10  # 外层函数的局部变量
+
+    def inner():
+        nonlocal x  # 声明x是外层函数的变量
+        x = 20  # 修改外层函数的局部变量x的值
+
+    inner()
+    print(x)  # 输出 20
+
+
+outer()
+```
